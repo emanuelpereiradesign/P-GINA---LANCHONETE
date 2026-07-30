@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
       id: 1,
       name: 'Mega Arretado',
       category: 'Mais Vendido',
-      badge: '🔥 Nº 1 de Vendas',
+      badge: '<i class="fas fa-fire"></i> Nº 1 de Vendas',
       desc: 'Pão australiano amanteigado, 2 hambúrgueres artesanais 160g, duplo cheddar, farofa crocante de bacon e cebola caramelizada.',
       price: 'R$ 30,00',
       rating: '5.0',
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
       id: 2,
       name: 'Batata Carne de Sol na Nata',
       category: 'Escolha da Casa',
-      badge: '🧀 Para Compartilhar',
+      badge: '<i class="fas fa-cheese"></i> Para Compartilhar',
       desc: 'Batatas fritas super crocantes cobertas com farta carne de sol desfiada na nata, queijo coalho gratinado e farofa artesanal.',
       price: 'R$ 58,00',
       rating: '5.0',
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
       id: 3,
       name: 'Pastel Especial Recanto',
       category: 'Favorito dos Clientes',
-      badge: '🥟 Crocante e Suculento',
+      badge: '<i class="fas fa-cookie"></i> Crocante e Suculento',
       desc: 'Massa levíssima e sequinha recheada com carne moída bem temperada, queijo muçarela derretido, presunto, ovo e milho.',
       price: 'R$ 18,00',
       rating: '4.9',
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
       id: 4,
       name: 'Double Smash Bacon',
       category: 'Mais Vendido',
-      badge: '🥓 Favorito da Galera',
+      badge: '<i class="fas fa-bacon"></i> Favorito da Galera',
       desc: 'Pão brioche macio, 2 smash burgers crocantinhos de 90g, fatias generosas de bacon artesanal e maionese secreta da casa.',
       price: 'R$ 28,00',
       rating: '5.0',
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
       id: 5,
       name: 'Milk-shake Choco Gourmet',
       category: 'Escolha da Casa',
-      badge: '🍫 Sobremesa Perfeita',
+      badge: '<i class="fas fa-ice-cream"></i> Sobremesa Perfeita',
       desc: 'Sorvete premium de chocolate, calda generosa nas bordas, chantilly cremoso artesanal e raspas de biscoito crocante.',
       price: 'R$ 20,00',
       rating: '4.9',
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
       id: 6,
       name: 'Açaí Supremo da Casa',
       category: 'Favorito dos Clientes',
-      badge: '💜 100% Puro e Cremoso',
+      badge: '<i class="fas fa-heart"></i> 100% Puro e Cremoso',
       desc: 'Açaí cremoso de altíssima pureza com morangos frescos fatiados, banana, leite em pó, granola especial e leite condensado.',
       price: 'R$ 22,00',
       rating: '5.0',
@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <span class="special-card__price">${product.price}</span>
           </div>
           <a href="${linkUrl}" target="_blank" rel="noopener" class="btn btn--primary btn--full instadelivery-link">
-            🍔 Pedir no InstaDelivery
+            <i class="fas fa-utensils"></i> Pedir no InstaDelivery
           </a>
         </div>
       </div>
@@ -180,7 +180,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!hoursEl || !minutesEl || !secondsEl) return;
 
-    // Set countdown for 4 hours from current session start
     let totalSeconds = (4 * 3600) + (28 * 60) + 15;
 
     setInterval(() => {
@@ -343,7 +342,7 @@ document.addEventListener('DOMContentLoaded', () => {
       renderFeaturedProducts();
       closeAdmin();
 
-      alert('✨ Alterações salvas com sucesso! A página foi atualizada.');
+      alert('Alterações salvas com sucesso! A página foi atualizada.');
     });
   }
 
