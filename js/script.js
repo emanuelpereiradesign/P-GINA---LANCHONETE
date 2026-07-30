@@ -335,19 +335,31 @@ document.addEventListener('DOMContentLoaded', () => {
     reveals.forEach(el => observer.observe(el));
   }
 
-  // Mobile Hamburger Toggle
+  // Mobile Hamburger Toggle & Drawer Controller
   const hamburger = document.getElementById('hamburger');
   const nav = document.getElementById('nav');
+  const navOverlay = document.getElementById('navOverlay');
+  const closeNavBtn = document.getElementById('closeNavBtn');
 
-  if (hamburger && nav) {
-    hamburger.addEventListener('click', () => {
-      nav.classList.toggle('active');
-    });
+  function openMobileNav() {
+    if (nav) nav.classList.add('active');
+    if (navOverlay) navOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
 
+  function closeMobileNav() {
+    if (nav) nav.classList.remove('active');
+    if (navOverlay) navOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  if (hamburger) hamburger.addEventListener('click', openMobileNav);
+  if (closeNavBtn) closeNavBtn.addEventListener('click', closeMobileNav);
+  if (navOverlay) navOverlay.addEventListener('click', closeMobileNav);
+
+  if (nav) {
     nav.querySelectorAll('.nav__link').forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('active');
-      });
+      link.addEventListener('click', closeMobileNav);
     });
   }
 
