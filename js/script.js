@@ -200,43 +200,104 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================
-  // 4. REVIEWS SLIDER (CARROSSEL)
+  // 4. REVIEWS SLIDER (CARROSSEL COM ANIMAÇÃO SLIDE & SWIPE)
   // ==========================================
 
   function initReviewsSlider() {
-    const cards = document.querySelectorAll('#reviewsContainer .review-card');
+    const track = document.getElementById('reviewsTrack');
+    const cards = document.querySelectorAll('#reviewsTrack .review-card');
     const prevBtn = document.getElementById('reviewPrevBtn');
     const nextBtn = document.getElementById('reviewNextBtn');
+    const dotsContainer = document.getElementById('reviewsDots');
 
-    if (!cards.length) return;
+    if (!track || !cards.length) return;
 
     let currentIndex = 0;
+    let autoPlayTimer = null;
 
-    function showReview(index) {
-      cards.forEach((card, i) => {
-        card.classList.toggle('active', i === index);
+    // Create dot indicators
+    if (dotsContainer) {
+      dotsContainer.innerHTML = '';
+      cards.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('reviews-dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(index));
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    function updateSlider() {
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      
+      const dots = document.querySelectorAll('.reviews-dot');
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+      });
+    }
+
+    function goToSlide(index) {
+      currentIndex = index;
+      updateSlider();
+      restartAutoPlay();
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % cards.length;
+      updateSlider();
+    }
+
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+      updateSlider();
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        nextSlide();
+        restartAutoPlay();
       });
     }
 
     if (prevBtn) {
       prevBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-        showReview(currentIndex);
+        prevSlide();
+        restartAutoPlay();
       });
     }
 
-    if (nextBtn) {
-      nextBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % cards.length;
-        showReview(currentIndex);
-      });
+    function startAutoPlay() {
+      autoPlayTimer = setInterval(nextSlide, 5000);
     }
 
-    // Auto rotate every 6 seconds
-    setInterval(() => {
-      currentIndex = (currentIndex + 1) % cards.length;
-      showReview(currentIndex);
-    }, 6000);
+    function restartAutoPlay() {
+      clearInterval(autoPlayTimer);
+      startAutoPlay();
+    }
+
+    // Touch Swipe support for Mobile
+    let startX = 0;
+    let currentX = 0;
+
+    track.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+    }, { passive: true });
+
+    track.addEventListener('touchend', (e) => {
+      currentX = e.changedTouches[0].clientX;
+      const diff = startX - currentX;
+
+      if (Math.abs(diff) > 40) {
+        if (diff > 0) {
+          nextSlide();
+        } else {
+          prevSlide();
+        }
+        restartAutoPlay();
+      }
+    }, { passive: true });
+
+    startAutoPlay();
   }
 
   // ==========================================
