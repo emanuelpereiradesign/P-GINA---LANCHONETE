@@ -322,6 +322,11 @@ button, input {
   padding: 4px;
 }
 
+.nav__close,
+.nav-overlay {
+  display: none;
+}
+
 .hamburger span {
   width: 24px;
   height: 2px;
@@ -1571,6 +1576,7 @@ input, select, textarea {
   }
 
   .nav-overlay {
+    display: block;
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.75);
@@ -1607,6 +1613,7 @@ input, select, textarea {
   }
 
   .nav__close {
+    display: block;
     position: absolute;
     top: 20px;
     right: 20px;
