@@ -3,12 +3,77 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO Primary Meta Tags -->
+    <title>O Recanto do Sabor | Lanchonete e Pastelaria em São Paulo do Potengi</title>
+    <meta name="title" content="O Recanto do Sabor | Lanchonete e Pastelaria" />
     <meta
       name="description"
-      content="O Recanto do Sabor - Lanchonete e Pastelaria. Hambúrgueres artesanais suculentos, pastéis crocantes e recheados, açaí, porções e bebidas em ambiente aconchegante."
+      content="O Recanto do Sabor - O hambúrguer artesanal que conquistou a cidade. Pastéis crocantes, porções generosas, açaí puro e entrega rápida em São Paulo do Potengi."
     />
-    <title>Recanto do Sabor | Lanchonete e Pastelaria</title>
-    
+    <meta name="keywords" content="hambúrguer artesanal, lanchonete, pastelaria, pastel crocante, açaí, entrega rápida, São Paulo do Potengi, pedido online, InstaDelivery" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://recantodosabor.com.br" />
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://recantodosabor.com.br" />
+    <meta property="og:title" content="O Recanto do Sabor | Lanchonete e Pastelaria" />
+    <meta property="og:description" content="O hambúrguer artesanal que conquistou a cidade. Ingredientes frescos, entrega rápida e sabor inesquecível." />
+    <meta property="og:image" content="assets/hero_burger.jpg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="O Recanto do Sabor | Lanchonete e Pastelaria" />
+    <meta property="twitter:description" content="O hambúrguer artesanal que conquistou a cidade. Ingredientes frescos e entrega rápida." />
+    <meta property="twitter:image" content="assets/hero_burger.jpg" />
+
+    <!-- JSON-LD Structured Data for Local Business SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FastFoodRestaurant",
+      "name": "O Recanto do Sabor - Lanchonete e Pastelaria",
+      "image": "https://recantodosabor.com.br/assets/hero_burger.jpg",
+      "@id": "https://recantodosabor.com.br",
+      "url": "https://recantodosabor.com.br",
+      "telephone": "+5584999990000",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Avenida das Delícias, 100",
+        "addressLocality": "São Paulo do Potengi",
+        "addressRegion": "RN",
+        "postalCode": "59460-000",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -5.8944,
+        "longitude": -35.7628
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "17:00",
+        "closes": "23:00"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "128"
+      }
+    }
+    </script>
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -31,7 +96,7 @@
     <header class="header" id="header">
       <div class="container header__inner">
         <a href="#" class="logo">
-          <img src="assets/LOGO RECANTO DO SABOR.svg" alt="Logo Recanto do Sabor" class="logo__img" />
+          <img src="assets/LOGO RECANTO DO SABOR.svg" alt="Logo Recanto do Sabor" class="logo__img" width="40" height="40" />
           <div class="logo__text">
             <span class="logo__title">Recanto do Sabor</span>
             <span class="logo__subtitle">Lanchonete e Pastelaria</span>
@@ -41,27 +106,24 @@
         <nav class="nav" id="nav">
           <ul class="nav__list">
             <li><a href="#hero" class="nav__link active">Início</a></li>
-            <li><a href="#destaques" class="nav__link">Destaques</a></li>
-            <li><a href="#sobre" class="nav__link">Sobre Nós</a></li>
-            <li><a href="#cardapio" class="nav__link">Cardápio</a></li>
-            <li><a href="#ambiente" class="nav__link">Ambiente</a></li>
+            <li><a href="#destaques" class="nav__link">Mais Vendidos</a></li>
+            <li><a href="#promocao" class="nav__link">Promoção</a></li>
+            <li><a href="#diferenciais" class="nav__link">Diferenciais</a></li>
+            <li><a href="#galeria" class="nav__link">Galeria</a></li>
             <li><a href="#avaliacoes" class="nav__link">Avaliações</a></li>
             <li><a href="#contato" class="nav__link">Contato</a></li>
           </ul>
         </nav>
 
         <div class="header__actions">
-          <button class="cart-trigger-btn" id="openCartBtn" aria-label="Abrir Carrinho de Pedidos">
-            <i class="fas fa-shopping-bag"></i>
-            <span class="cart-trigger-count" id="cartCountBadge">0</span>
-          </button>
           <a
-            href="https://wa.me/5584999990000"
+            href="https://instadelivery.com.br/recantodosabor"
             target="_blank"
             rel="noopener"
-            class="btn btn--primary btn--header"
+            class="btn btn--primary btn--header instadelivery-link"
+            id="headerCtaBtn"
           >
-            <i class="fab fa-whatsapp"></i> Pedir Online
+            🍔 Pedir Agora
           </a>
           <button class="hamburger" id="hamburger" aria-label="Menu Mobile">
             <span></span><span></span><span></span>
@@ -70,51 +132,51 @@
       </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- 1. Hero Section com Parallax Leve -->
     <section class="hero" id="hero">
       <div class="container hero__container">
-        <div class="hero__text-col">
+        <div class="hero__text-col reveal">
           <div class="hero__brand-header">
-            <img src="assets/LOGO RECANTO DO SABOR.svg" alt="Logo Recanto do Sabor" class="hero__brand-logo" />
+            <img src="assets/LOGO RECANTO DO SABOR.svg" alt="Logo Recanto do Sabor" class="hero__brand-logo" width="48" height="48" />
             <span class="hero__script">Lanchonete e Pastelaria</span>
           </div>
-          <h1 class="hero__title">
-            BOM SABOR<br /><span class="highlight-orange">Bom Momento</span>
+          <h1 class="hero__title" id="heroTitleDisplay">
+            O hambúrguer artesanal que <span class="highlight-orange">conquistou a cidade.</span>
           </h1>
-          <p class="hero__description">
-            Os hambúrgueres artesanais mais suculentos, pastéis sequinhos e crocantes, porções generosas e o melhor açaí da região.
+          <p class="hero__description" id="heroSubtitleDisplay">
+            Ingredientes frescos, entrega rápida e um sabor inesquecível que faz você voltar sempre.
           </p>
+          
           <div class="hero__buttons">
-            <a href="#cardapio" class="btn btn--primary btn--lg">
-              VER CARDÁPIO <i class="fas fa-arrow-right"></i>
+            <a href="https://instadelivery.com.br/recantodosabor" target="_blank" rel="noopener" class="btn btn--primary btn--lg instadelivery-link" id="heroMainCtaBtn">
+              🍔 Pedir Agora
             </a>
             <a href="#destaques" class="btn btn--outline-light btn--lg">
-              CONHECER DESTAQUES
+              Ver Mais Vendidos <i class="fas fa-arrow-down"></i>
             </a>
           </div>
-          <div class="hero__rating-badge">
-            <div class="stars">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <span><strong>5,0 no Google</strong> · 10+ Avaliações Reais</span>
+
+          <div class="hero__triggers">
+            <span><i class="fas fa-check-circle"></i> Mais de 5.000 pedidos entregues</span>
+            <span><i class="fas fa-motorcycle"></i> Entrega em até 35 min</span>
           </div>
         </div>
 
-        <div class="hero__img-col">
+        <div class="hero__img-col reveal">
           <div class="hero__img-wrapper">
-            <img src="assets/hero_burger.jpg" alt="Hambúrguer Artesanal Recanto do Sabor" class="hero__main-img" />
+            <img src="assets/hero_burger.jpg" alt="Hambúrguer Artesanal Recanto do Sabor" class="hero__main-img" fetchpriority="high" />
             <div class="hero__badge-floating">
               <i class="fas fa-fire"></i>
               <div>
-                <strong>Lanches e Artesanais</strong>
-                <span>100% Carne Selecionada</span>
+                <strong>Carne 100% Artesanal</strong>
+                <span>Grelhado na hora</span>
               </div>
             </div>
             <div class="hero__badge-floating hero__badge-floating--secondary">
-              <i class="fas fa-cookie"></i>
+              <i class="fas fa-star"></i>
               <div>
-                <strong>Pastéis Crocantes</strong>
-                <span>Massa Leve e Bem Recheada</span>
+                <strong>Nota 4.9 no Google</strong>
+                <span>Eleito o queridinho</span>
               </div>
             </div>
           </div>
@@ -122,129 +184,295 @@
       </div>
     </section>
 
-    <!-- Feature Bar (White Floating Card - Like Reference) -->
+    <!-- 2. Barra de Confiança (Trust Bar) -->
     <div class="container">
-      <section class="features-bar">
-        <div class="features-bar__item">
-          <div class="features-bar__icon"><i class="fas fa-leaf"></i></div>
+      <section class="trust-bar reveal">
+        <div class="trust-bar__item">
+          <div class="trust-bar__icon"><i class="fas fa-star"></i></div>
           <div>
-            <h4>INGREDIENTES FRESCOS</h4>
-            <p>Carnes selecionadas, pastéis fritos na hora e insumos de altíssima qualidade.</p>
+            <h4>⭐⭐⭐⭐⭐ 4.9 / 5.0</h4>
+            <p>Mais de 120 avaliações de clientes satisfeitos</p>
           </div>
         </div>
-        <div class="features-bar__divider"></div>
-        <div class="features-bar__item">
-          <div class="features-bar__icon"><i class="fas fa-hamburger"></i></div>
+        <div class="trust-bar__divider"></div>
+        <div class="trust-bar__item">
+          <div class="trust-bar__icon"><i class="fas fa-bolt"></i></div>
           <div>
-            <h4>RECEITAS DEDICADAS</h4>
-            <p>Lanches tradicionais e artesanais preparados com capricho e tempero único.</p>
+            <h4>🚀 ENTREGA RÁPIDA</h4>
+            <p>Seu lanche quentinho entregue em até 35 minutos</p>
           </div>
         </div>
-        <div class="features-bar__divider"></div>
-        <div class="features-bar__item">
-          <div class="features-bar__icon"><i class="fas fa-heart"></i></div>
+        <div class="trust-bar__divider"></div>
+        <div class="trust-bar__item">
+          <div class="trust-bar__icon"><i class="fas fa-drumstick-bite"></i></div>
           <div>
-            <h4>FEITO COM AMOR</h4>
-            <p>Atendimento acolhedor e carismático como amigo de infância.</p>
+            <h4>🥩 CARNE ARTESANAL</h4>
+            <p>Blend de carnes nobres moídas diariamente</p>
           </div>
         </div>
-        <div class="features-bar__divider"></div>
-        <div class="features-bar__item">
-          <div class="features-bar__icon"><i class="fas fa-truck-fast"></i></div>
+        <div class="trust-bar__divider"></div>
+        <div class="trust-bar__item">
+          <div class="trust-bar__icon"><i class="fas fa-wallet"></i></div>
           <div>
-            <h4>ENTREGA E DINE-IN</h4>
-            <p>Consuma no local na nossa cobertura ou peça rápido no delivery.</p>
+            <h4>💳 PIX & CARTÕES</h4>
+            <p>Pagamento fácil na entrega ou no aplicativo</p>
           </div>
         </div>
       </section>
     </div>
 
-    <!-- Destaques Especiais (Chef's Specials Grid) -->
+    <!-- 3. Produtos em Destaque (Removido Cardápio Completo - Apenas 6 a 8 Top Produtos) -->
     <section class="section specials" id="destaques">
       <div class="container">
-        <div class="section__header">
-          <span class="section__tag-line">--- OS FAVORITOS DA GALERA ---</span>
-          <h2 class="section__title-serif">Nossos Destaques Especiais</h2>
+        <div class="section__header reveal">
+          <span class="section__tag-line">--- OS QUERIDINHOS DO PÚBLICO ---</span>
+          <h2 class="section__title-serif">Produtos em Destaque</h2>
+          <p class="section__subtext">Os lanches mais pedidos e elogiados da nossa casa</p>
         </div>
 
-        <div class="specials__grid">
-          <!-- Card 1 -->
-          <div class="special-card">
-            <div class="special-card__img-container">
-              <img src="assets/hero_burger.jpg" alt="Mega Arretado" />
-              <button class="special-card__fav-btn" aria-label="Favorito"><i class="fas fa-heart"></i></button>
-              <span class="special-card__badge">Mais Pedido</span>
-            </div>
-            <div class="special-card__body">
-              <h3 class="special-card__title">Mega Arretado</h3>
-              <p class="special-card__desc">Pão australiano, 2 hambúrgueres artesanais, ovo, queijo cheddar, farofa de bacon e cebola caramelizada.</p>
-              <div class="special-card__footer">
-                <div class="special-card__rating">
-                  <i class="fas fa-star"></i> 5.0 <span>(38)</span>
-                </div>
-                <span class="special-card__price">R$ 30,00</span>
+        <div class="specials__grid" id="featuredProductsContainer">
+          <!-- Dynamically populated from JS or Admin settings -->
+        </div>
+
+        <div class="specials__cta-center reveal">
+          <p>Quer ver a lista completa de bebidas, pastéis e adicionais?</p>
+          <a href="https://instadelivery.com.br/recantodosabor" target="_blank" rel="noopener" class="btn btn--primary btn--lg instadelivery-link">
+            🍔 Acessar Cardápio no InstaDelivery <i class="fas fa-external-link-alt"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Banner Promocional Exclusivo da Semana -->
+    <section class="section promo-banner-section" id="promocao">
+      <div class="container">
+        <div class="promo-card reveal">
+          <div class="promo-card__content">
+            <span class="promo-card__badge" id="promoBadgeDisplay">🔥 PROMOÇÃO DA SEMANA</span>
+            <h2 class="promo-card__title" id="promoTitleDisplay">Compre 2 Double Smash Burgers e ganhe 1 Batata Média Crocante!</h2>
+            <p class="promo-card__desc" id="promoDescDisplay">
+              Aproveite esta oferta especial válida por tempo limitado. Hambúrgueres artesanais suculentos + batata frita douradinha grátis!
+            </p>
+            
+            <div class="promo-card__timer" id="countdownWrapper">
+              <span class="timer-label">Oferta expira em:</span>
+              <div class="timer-boxes">
+                <div class="timer-box"><span id="timerHours">04</span><small>Horas</small></div>
+                <div class="timer-box"><span id="timerMinutes">28</span><small>Minutos</small></div>
+                <div class="timer-box"><span id="timerSeconds">15</span><small>Segundos</small></div>
               </div>
-              <button class="btn btn--primary btn--full add-to-cart-btn" data-name="Mega Arretado" data-price="30.00">
-                <i class="fas fa-plus"></i> Adicionar ao Pedido
-              </button>
+            </div>
+
+            <div class="promo-card__actions">
+              <a href="https://instadelivery.com.br/recantodosabor" target="_blank" rel="noopener" class="btn btn--primary btn--lg instadelivery-link">
+                🛒 Garantir Promoção Agora
+              </a>
+              <span class="promo-coupon-code">Use o cupom: <strong id="promoCouponDisplay">RECANTO10</strong></span>
             </div>
           </div>
-
-          <!-- Card 2 -->
-          <div class="special-card">
-            <div class="special-card__img-container">
-              <img src="assets/special_fries.jpg" alt="Mega Batata Carne de Sol" />
-              <button class="special-card__fav-btn" aria-label="Favorito"><i class="fas fa-heart"></i></button>
-              <span class="special-card__badge">Para Compartilhar</span>
-            </div>
-            <div class="special-card__body">
-              <h3 class="special-card__title">Batata Carne de Sol na Nata</h3>
-              <p class="special-card__desc">Batata frita crocante, generosa carne de sol na nata, queijo coalho e molho cheddar ou catupiry.</p>
-              <div class="special-card__footer">
-                <div class="special-card__rating">
-                  <i class="fas fa-star"></i> 5.0 <span>(42)</span>
-                </div>
-                <span class="special-card__price">R$ 58,00</span>
-              </div>
-              <button class="btn btn--primary btn--full add-to-cart-btn" data-name="Batata Carne de Sol na Nata" data-price="58.00">
-                <i class="fas fa-plus"></i> Adicionar ao Pedido
-              </button>
-            </div>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="special-card">
-            <div class="special-card__img-container">
-              <img src="assets/hero_acai.jpg" alt="Açaí Supremo Recanto" />
-              <button class="special-card__fav-btn" aria-label="Favorito"><i class="fas fa-heart"></i></button>
-              <span class="special-card__badge">Destaque Açaí</span>
-            </div>
-            <div class="special-card__body">
-              <h3 class="special-card__title">Açaí Supremo da Casa</h3>
-              <p class="special-card__desc">Açaí cremoso com morangos frescos, bananas fatiadas, leite em pó, granola crocante e leite condensado.</p>
-              <div class="special-card__footer">
-                <div class="special-card__rating">
-                  <i class="fas fa-star"></i> 5.0 <span>(50)</span>
-                </div>
-                <span class="special-card__price">R$ 22,00</span>
-              </div>
-              <button class="btn btn--primary btn--full add-to-cart-btn" data-name="Açaí Supremo da Casa" data-price="22.00">
-                <i class="fas fa-plus"></i> Adicionar ao Pedido
-              </button>
-            </div>
+          <div class="promo-card__image-container">
+            <img src="assets/promo_smash.jpg" alt="Promoção da Semana Recanto do Sabor" loading="lazy" />
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Sobre Nós (About Us - Matching Reference Image with Background) -->
+    <!-- 5. Seção de Diferenciais com Ícones -->
+    <section class="section diferenciais-section" id="diferenciais">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__tag-line">--- POR QUE ESCOLHER O RECANTO? ---</span>
+          <h2 class="section__title-serif">Nossos Diferenciais</h2>
+          <p class="section__subtext">Qualidade e cuidado em cada detalhe do seu pedido</p>
+        </div>
+
+        <div class="diferenciais-grid">
+          <div class="diferencial-card reveal">
+            <div class="diferencial-card__icon"><i class="fas fa-seedling"></i></div>
+            <h3>Ingredientes Selecionados</h3>
+            <p>Insumos frescos comprados diariamente de produtores locais para garantir o máximo de sabor.</p>
+          </div>
+          <div class="diferencial-card reveal">
+            <div class="diferencial-card__icon"><i class="fas fa-fire-burner"></i></div>
+            <h3>Preparado na Hora</h3>
+            <p>Seu hambúrguer ou pastel é feito exatamente após a confirmação do pedido. Nada de comida requentada!</p>
+          </div>
+          <div class="diferencial-card reveal">
+            <div class="diferencial-card__icon"><i class="fas fa-truck-fast"></i></div>
+            <h3>Entrega Rápida</h3>
+            <p>Entregadores equipados para garantir que seu lanche chegue rápido e quentinho na sua porta.</p>
+          </div>
+          <div class="diferencial-card reveal">
+            <div class="diferencial-card__icon"><i class="fas fa-smile-beam"></i></div>
+            <h3>Atendimento de Qualidade</h3>
+            <p>Equipe atenciosa pronta para tirar suas dúvidas e garantir sua total satisfação.</p>
+          </div>
+          <div class="diferencial-card reveal">
+            <div class="diferencial-card__icon"><i class="fas fa-box-tissue"></i></div>
+            <h3>Embalagem Segura</h3>
+            <p>Embalagens térmicas projetadas para manter a crocância da batata e o queijo derretido.</p>
+          </div>
+          <div class="diferencial-card reveal">
+            <div class="diferencial-card__icon"><i class="fas fa-qrcode"></i></div>
+            <h3>Pagamento Facilitado</h3>
+            <p>Aceitamos Pix, cartão de crédito, débito e vale refeição para sua total comodidade.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Avaliações (Carrossel com Depoimentos Reais / Placeholders) -->
+    <section class="section reviews-section" id="avaliacoes">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__tag-line">--- O QUE DIZEM NOSSOS CLIENTES ---</span>
+          <h2 class="section__title-serif">Avaliações 5 Estrelas</h2>
+          <p class="section__subtext">A opinião de quem já provou e aprovou o nosso sabor</p>
+        </div>
+
+        <div class="reviews-slider-wrapper reveal">
+          <button class="slider-arrow prev" id="reviewPrevBtn" aria-label="Avaliação Anterior"><i class="fas fa-chevron-left"></i></button>
+          
+          <div class="reviews-slider-container" id="reviewsContainer">
+            <div class="review-card active">
+              <div class="review-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+              <p class="review-text">"Sem dúvidas é a melhor lanchonete e pastelaria da cidade! O hambúrguer é extremamente suculento e o pastel é sequinho. Atendimento impecável!"</p>
+              <div class="review-author">
+                <div class="avatar">YA</div>
+                <div>
+                  <strong>Yasmim Alves</strong>
+                  <span>Cliente Verificada</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="review-card">
+              <div class="review-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+              <p class="review-text">"Tudo muito Top… o atendimento é incrível, a entrega foi super rápida e a qualidade da carne artesanal me surpreendeu de verdade!"</p>
+              <div class="review-author">
+                <div class="avatar">HP</div>
+                <div>
+                  <strong>Higo Pablo</strong>
+                  <span>Cliente Verificado</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="review-card">
+              <div class="review-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+              <p class="review-text">"O melhor pastel e lanche da cidade, sem comparações! Ingredientes super frescos e a batata recheada é divina ❤️"</p>
+              <div class="review-author">
+                <div class="avatar">LM</div>
+                <div>
+                  <strong>Leticia Mendes</strong>
+                  <span>Cliente Verificada</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="review-card">
+              <div class="review-stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+              <p class="review-text">"Pedir no InstaDelivery foi super fácil e o lanche chegou quentinho antes do prazo previsto. Recomendo demais a todos!"</p>
+              <div class="review-author">
+                <div class="avatar">MF</div>
+                <div>
+                  <strong>Marcos Fé</strong>
+                  <span>Cliente Verificado</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button class="slider-arrow next" id="reviewNextBtn" aria-label="Próxima Avaliação"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Galeria de Fotos Realistas (Transmite Desejo Visual) -->
+    <section class="section gallery-section" id="galeria">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__tag-line">--- EXPERIÊNCIA VISUAL ---</span>
+          <h2 class="section__title-serif">Nossa Galeria de Sabores</h2>
+          <p class="section__subtext">Deu água na boca? Confira um pouco do nosso dia a dia</p>
+        </div>
+
+        <div class="gallery-grid reveal">
+          <div class="gallery-item">
+            <img src="assets/hero_burger.jpg" alt="Hambúrguer Gourmet" loading="lazy" />
+            <div class="gallery-overlay"><span>🍔 Hambúrgueres Artesanais</span></div>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/special_fries.jpg" alt="Batata Frita Carregada" loading="lazy" />
+            <div class="gallery-overlay"><span>🍟 Batatas com Cheddar & Bacon</span></div>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/gallery_milkshake.jpg" alt="Milk-shake Cremoso" loading="lazy" />
+            <div class="gallery-overlay"><span>🥤 Milk-shakes Especiais</span></div>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/gallery_pastels.jpg" alt="Pastéis Crocantes" loading="lazy" />
+            <div class="gallery-overlay"><span>🥟 Pastéis Crocantes Fritos na Hora</span></div>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/gallery_kitchen.jpg" alt="Cozinha e Preparo" loading="lazy" />
+            <div class="gallery-overlay"><span>🔥 Preparo Artesanal na Chapa</span></div>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/People_in_Brazilian_environment_2K_202607281820.webp" alt="Ambiente Aconchegante" loading="lazy" />
+            <div class="gallery-overlay"><span>❤️ Nosso Espaço & Clientes</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Como Funciona (3 Passos Simples) -->
+    <section class="section how-it-works" id="comofunciona">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__tag-line">--- PASSO A PASSO ---</span>
+          <h2 class="section__title-serif">Como Funciona Seu Pedido</h2>
+          <p class="section__subtext">Três passos simples para matar a sua fome</p>
+        </div>
+
+        <div class="steps-grid reveal">
+          <div class="step-card">
+            <div class="step-num">1️⃣</div>
+            <h3>Escolha seu Lanche</h3>
+            <p>Navegue pelo nosso cardápio no InstaDelivery e selecione seus lanches, pastéis ou bebidas favoritos.</p>
+          </div>
+          <div class="step-arrow"><i class="fas fa-chevron-right"></i></div>
+          <div class="step-card">
+            <div class="step-num">2️⃣</div>
+            <h3>Faça seu Pedido</h3>
+            <p>Confirme a forma de entrega (Delivery ou Retirada) e escolha pagar via Pix ou Cartão no aplicativo.</p>
+          </div>
+          <div class="step-arrow"><i class="fas fa-chevron-right"></i></div>
+          <div class="step-card">
+            <div class="step-num">3️⃣</div>
+            <h3>Receba em Casa</h3>
+            <p>Pronto! Nossa equipe prepara com capricho e o entregador leva o seu pedido quentinho até a sua porta.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. Sobre Nós & Informações (Horário, Endereço, Mapa, WhatsApp, Instagram) -->
     <section class="section about-section" id="sobre">
       <div class="container">
-        <div class="about-grid">
+        <div class="about-grid reveal">
           <div class="about-img-box">
-            <img src="assets/Change_wall_logo_to_snack_202607281818.webp" alt="Ambiente Recanto do Sabor" class="about-main-img" />
+            <img src="assets/Change_wall_logo_to_snack_202607281818.webp" alt="Ambiente Recanto do Sabor" class="about-main-img" loading="lazy" />
             <div class="about-years-badge">
-              <h2>⭐ 5,0</h2>
+              <h2>⭐ 4.9</h2>
               <p>Nota Máxima dos Clientes no Google</p>
             </div>
           </div>
@@ -255,11 +483,11 @@
               No <strong>Recanto do Sabor - Lanchonete e Pastelaria</strong>, acreditamos que cada refeição deve ser uma experiência deliciosa e inesquecível. Oferecemos desde hambúrgueres artesanais grelhados no ponto certo a pastéis crocantes recheados na hora, porções generosas e açaí bem cremoso.
             </p>
             <p class="about-desc">
-              Nosso atendimento carismático faz você se sentir em casa, como um verdadeiro amigo de infância. Venha desfrutar das nossas mesas na cobertura ou peça do conforto do seu lar!
+              Nosso atendimento carismático faz você se sentir em casa. Venha desfrutar do nosso espaço ou peça do conforto do seu lar!
             </p>
             <div class="about-signature-wrapper">
-              <a href="#contato" class="btn btn--primary btn--lg">
-                SAIBA MAIS <i class="fas fa-arrow-right"></i>
+              <a href="https://instadelivery.com.br/recantodosabor" target="_blank" rel="noopener" class="btn btn--primary btn--lg instadelivery-link">
+                Fazer Pedido no InstaDelivery <i class="fas fa-arrow-right"></i>
               </a>
               <span class="about-signature">Recanto do Sabor ♡</span>
             </div>
@@ -268,179 +496,72 @@
       </div>
     </section>
 
-    <!-- Cardápio Completo Filtrável -->
-    <section class="section menu-section" id="cardapio">
-      <div class="container">
-        <div class="section__header">
-          <span class="section__tag-line">--- NOSSO CARDÁPIO DIVERSIFICADO ---</span>
-          <h2 class="section__title-serif">Escolha o Seu Pedido</h2>
-          <p class="section__subtext">Navegue pelas categorias ou busque seu prato favorito!</p>
-        </div>
-
-        <div class="menu-search-wrapper">
-          <i class="fas fa-search menu-search-icon"></i>
-          <input type="text" id="menuSearchInput" placeholder="Buscar hambúrguer, pastel, batata, açaí ou bebida..." />
-        </div>
-
-        <div class="menu-tabs" id="menuTabs">
-          <button class="menu-tab active" data-category="hamburgueres">
-            <i class="fas fa-hamburger"></i> Hambúrgueres
-          </button>
-          <button class="menu-tab" data-category="pasteis">
-            <i class="fas fa-cookie"></i> Pastéis
-          </button>
-          <button class="menu-tab" data-category="tradicionais">
-            <i class="fas fa-bread-slice"></i> Tradicionais
-          </button>
-          <button class="menu-tab" data-category="megadog">
-            <i class="fas fa-hotdog"></i> Mega Dog
-          </button>
-          <button class="menu-tab" data-category="torres">
-            <i class="fas fa-french-fries"></i> Torres e Porções
-          </button>
-          <button class="menu-tab" data-category="bebidas">
-            <i class="fas fa-glass-whiskey"></i> Bebidas e Doces
-          </button>
-          <button class="menu-tab" data-category="combos">
-            <i class="fas fa-gift"></i> Combos
-          </button>
-        </div>
-
-        <div class="menu-grid" id="menuGrid">
-          <!-- Dynamically populated via script.js -->
-        </div>
-      </div>
-    </section>
-
-    <!-- Ambiente e Comodidades -->
-    <section class="section ambiente-section" id="ambiente">
-      <div class="container">
-        <div class="section__header">
-          <span class="section__tag-line">--- O ESPAÇO ---</span>
-          <h2 class="section__title-serif">Estrutura Feita Para Acolher</h2>
-        </div>
-
-        <div class="ambiente-grid">
-          <div class="ambiente-feature-card">
-            <i class="fas fa-umbrella-beach"></i>
-            <h3>Mesas na Cobertura</h3>
-            <p>Espaço arejado ao ar livre com vista agradável da cidade para suas refeições noturnas.</p>
-          </div>
-          <div class="ambiente-feature-card">
-            <i class="fas fa-tv"></i>
-            <h3>Transmissão de Jogos</h3>
-            <p>Assista às partidas do seu time com amigos saboreando os melhores pastéis e lanches da região.</p>
-          </div>
-          <div class="ambiente-feature-card">
-            <i class="fas fa-wifi"></i>
-            <h3>Wi-Fi Gratuito</h3>
-            <p>Conexão de alta velocidade livre para clientes trabalharem ou postarem fotos.</p>
-          </div>
-          <div class="ambiente-feature-card">
-            <i class="fas fa-dog"></i>
-            <h3>Pet Friendly</h3>
-            <p>Traga seu animal de estimação! Aceitamos cães na nossa área externa com muito carinho.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Depoimentos e Prova Social -->
-    <section class="section reviews-section" id="avaliacoes">
-      <div class="container">
-        <div class="section__header">
-          <span class="section__tag-line">--- O QUE DIZEM NOSSOS CLIENTES ---</span>
-          <h2 class="section__title-serif">5 Estrelas No Google</h2>
-        </div>
-
-        <div class="reviews-grid">
-          <div class="review-card">
-            <div class="review-stars">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <p class="review-text">"Sem dúvidas é a melhor lanchonete e pastelaria da cidade, a localização e o ambiente são muito aconchegantes sem falar no atendimento dos funcionários que são maravilhosos."</p>
-            <div class="review-author">
-              <div class="avatar">YA</div>
-              <div>
-                <strong>Yasmim Alves</strong>
-                <span>Cliente Verificada</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="review-card">
-            <div class="review-stars">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <p class="review-text">"Tudo muito Top… atendimento, qualidade dos produtos e o Dono tem uma energia de outro mundo, parece que é amigo de infância da clientela."</p>
-            <div class="review-author">
-              <div class="avatar">HP</div>
-              <div>
-                <strong>Higo Pablo</strong>
-                <span>Cliente Verificado</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="review-card">
-            <div class="review-stars">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <p class="review-text">"O melhor pastel e lanche da cidade, sem comparações. Indico demais, venham conhecer ❤️"</p>
-            <div class="review-author">
-              <div class="avatar">LM</div>
-              <div>
-                <strong>Leticia Mendes</strong>
-                <span>Cliente Verificada</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact & Location Full Orange Banner (Matching Reference Image!) -->
+    <!-- Banner de Contato & Localização -->
     <div class="contact-orange-banner" id="contato">
       <div class="container">
-        <div class="contact-orange-grid">
+        <div class="contact-orange-grid reveal">
           <div class="contact-orange-col">
             <div class="contact-orange-icon"><i class="fas fa-location-dot"></i></div>
             <div>
               <h5>NOSSO ENDEREÇO</h5>
-              <p>Avenida das Delícias, Nº 100 - Centro<br />Cidade Fictícia - RN, 59000-000</p>
+              <p id="addressDisplay">Avenida das Delícias, Nº 100 - Centro<br />São Paulo do Potengi - RN, 59460-000</p>
             </div>
           </div>
           <div class="contact-orange-col">
             <div class="contact-orange-icon"><i class="fas fa-clock"></i></div>
             <div>
               <h5>HORÁRIO DE FUNCIONAMENTO</h5>
-              <p>Segunda a Domingo<br />Aberto até as 23:00</p>
+              <p id="hoursDisplay">Segunda a Domingo<br />17:00 às 23:00</p>
             </div>
           </div>
           <div class="contact-orange-col">
             <div class="contact-orange-icon"><i class="fab fa-whatsapp"></i></div>
             <div>
-              <h5>FAÇA SEU PEDIDO</h5>
-              <p>(84) 99999-0000<br />Atendimento Ágil pelo Whats</p>
+              <h5>WHATSAPP & INSTAGRAM</h5>
+              <p id="phoneDisplay">(84) 99999-0000</p>
+              <a href="https://instagram.com/recantodosabor" target="_blank" rel="noopener" class="social-link-inline" id="instaLinkDisplay">
+                <i class="fab fa-instagram"></i> @recantodosabor
+              </a>
             </div>
           </div>
           <div class="contact-orange-col">
             <div class="contact-orange-icon"><i class="fas fa-truck"></i></div>
             <div>
               <h5>ENTREGA RÁPIDA</h5>
-              <p>Dine-in, Retirada na porta e Delivery sem contato</p>
+              <p>Dine-in, Retirada na porta e Delivery em até 35min</p>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Footer Minimalista (Matching Reference Style) -->
+    <!-- 10. CTA Final Muito Chamativo -->
+    <section class="section final-cta-section">
+      <div class="container">
+        <div class="final-cta-box reveal">
+          <span class="final-cta-tag">🔥 FOME DA NOITE?</span>
+          <h2 class="final-cta-title">Está com fome?</h2>
+          <p class="final-cta-subtitle">
+            Peça agora mesmo pelo InstaDelivery e receba seu hambúrguer ou pastel quentinho na sua casa!
+          </p>
+          <a href="https://instadelivery.com.br/recantodosabor" target="_blank" rel="noopener" class="btn btn--primary btn--lg final-cta-btn instadelivery-link" id="finalCtaBtn">
+            🍔 FAZER PEDIDO NO INSTADELIVERY
+          </a>
+          <div class="final-cta-badges">
+            <span>✔ Sem cadastros demorados</span>
+            <span>✔ Pagamento fácil</span>
+            <span>✔ Entrega rápida</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Minimalista -->
     <footer class="site-footer">
       <div class="container footer-inner">
         <div class="footer-brand">
           <a href="#" class="logo">
-            <img src="assets/LOGO RECANTO DO SABOR.svg" alt="Logo Recanto do Sabor" class="logo__img" />
+            <img src="assets/LOGO RECANTO DO SABOR.svg" alt="Logo Recanto do Sabor" class="logo__img" width="40" height="40" />
             <div class="logo__text">
               <span class="logo__title">Recanto do Sabor</span>
               <span class="logo__subtitle">Lanchonete e Pastelaria</span>
@@ -450,62 +571,78 @@
         </div>
 
         <div class="footer-socials">
-          <a href="https://wa.me/5584999990000" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://wa.me/5584999990000" target="_blank" rel="noopener" aria-label="WhatsApp" id="footerWaLink"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://instagram.com/recantodosabor" target="_blank" rel="noopener" aria-label="Instagram" id="footerInstaLink"><i class="fab fa-instagram"></i></a>
+          <button class="admin-trigger-link" id="openAdminBtn" title="Área Administrativa">
+            <i class="fas fa-cog"></i> Admin
+          </button>
         </div>
       </div>
     </footer>
 
-    <!-- Shopping Cart Floating Drawer / Modal -->
-    <div class="cart-drawer-overlay" id="cartOverlay"></div>
-    <div class="cart-drawer" id="cartDrawer">
-      <div class="cart-drawer__header">
-        <h3><i class="fas fa-shopping-bag"></i> Seu Pedido</h3>
-        <button class="cart-drawer__close" id="closeCartBtn">&times;</button>
-      </div>
-
-      <div class="cart-drawer__body" id="cartItemsContainer">
-        <!-- Cart Items filled via JS -->
-      </div>
-
-      <div class="cart-drawer__footer">
-        <div class="cart-delivery-option">
-          <label><strong>Forma de Entrega:</strong></label>
-          <div class="cart-delivery-radio">
-            <label><input type="radio" name="deliveryType" value="Delivery" checked /> 🛵 Delivery</label>
-            <label><input type="radio" name="deliveryType" value="Retirada" /> 🛍️ Retirada no Local</label>
-            <label><input type="radio" name="deliveryType" value="Mesa" /> 🍽️ Na Mesa</label>
-          </div>
-        </div>
-
-        <div class="cart-input-group">
-          <input type="text" id="clientNameInput" placeholder="Seu Nome (opcional)" />
-          <input type="text" id="clientAddressInput" placeholder="Endereço / Mesa / Bairro" />
-        </div>
-
-        <div class="cart-total-row">
-          <span>Total do Pedido:</span>
-          <strong id="cartTotalDisplay">R$ 0,00</strong>
-        </div>
-
-        <button class="btn btn--primary btn--full btn--lg" id="sendWhatsAppOrderBtn">
-          <i class="fab fa-whatsapp"></i> ENVIAR PEDIDO NO WHATSAPP
-        </button>
-      </div>
-    </div>
-
-    <!-- Floating Sticky Cart Button for Mobile -->
-    <button class="sticky-cart-btn" id="stickyCartBtn">
+    <!-- Botão Flutuante Direto do InstaDelivery -->
+    <a href="https://instadelivery.com.br/recantodosabor" target="_blank" rel="noopener" class="sticky-cart-btn instadelivery-link" id="stickyInstaBtn">
       <div class="sticky-cart-icon">
-        <i class="fas fa-shopping-bag"></i>
-        <span class="sticky-cart-badge" id="stickyCartBadge">0</span>
+        <i class="fas fa-hamburger"></i>
       </div>
       <div class="sticky-cart-info">
-        <span>Ver Pedido</span>
-        <strong id="stickyCartTotal">R$ 0,00</strong>
+        <span>Fazer Pedido</span>
+        <strong>Abrir InstaDelivery</strong>
       </div>
-    </button>
+    </a>
+
+    <!-- Painel Administrativo Embutido (Admin Modal para o Dono) -->
+    <div class="admin-modal-overlay" id="adminOverlay"></div>
+    <div class="admin-modal" id="adminModal">
+      <div class="admin-modal__header">
+        <h3><i class="fas fa-cog"></i> Área Administrativa da Lanchonete</h3>
+        <button class="admin-modal__close" id="closeAdminBtn">&times;</button>
+      </div>
+      <div class="admin-modal__body">
+        <p class="admin-modal__intro">Altere as informações da sua Landing Page em tempo real sem precisar mexer em código!</p>
+        
+        <form id="adminForm">
+          <div class="admin-form-group">
+            <label for="adminInstaDeliveryUrl"><strong>Link do InstaDelivery:</strong></label>
+            <input type="url" id="adminInstaDeliveryUrl" placeholder="https://instadelivery.com.br/seu-nome" />
+          </div>
+
+          <div class="admin-form-group">
+            <label for="adminWhatsappNumber"><strong>Número do WhatsApp (com DDD):</strong></label>
+            <input type="text" id="adminWhatsappNumber" placeholder="84999990000" />
+          </div>
+
+          <div class="admin-form-group">
+            <label for="adminInstagramHandle"><strong>Instagram (@handle):</strong></label>
+            <input type="text" id="adminInstagramHandle" placeholder="@recantodosabor" />
+          </div>
+
+          <div class="admin-form-group">
+            <label for="adminPromoTitle"><strong>Título da Promoção da Semana:</strong></label>
+            <input type="text" id="adminPromoTitle" placeholder="Compre 2 Smash Burgers e ganhe 1 Batata Média..." />
+          </div>
+
+          <div class="admin-form-group">
+            <label for="adminPromoCoupon"><strong>Cupom de Desconto da Semana:</strong></label>
+            <input type="text" id="adminPromoCoupon" placeholder="RECANTO10" />
+          </div>
+
+          <div class="admin-form-group">
+            <label for="adminHoursText"><strong>Horário de Funcionamento:</strong></label>
+            <input type="text" id="adminHoursText" placeholder="Segunda a Domingo - 17:00 às 23:00" />
+          </div>
+
+          <div class="admin-form-group">
+            <label for="adminAddressText"><strong>Endereço Completo:</strong></label>
+            <input type="text" id="adminAddressText" placeholder="Avenida das Delícias, Nº 100 - Centro..." />
+          </div>
+
+          <button type="submit" class="btn btn--primary btn--full btn--lg">
+            💾 Salvar Alterações no Site
+          </button>
+        </form>
+      </div>
+    </div>
 
     <!-- Custom JS -->
     <script src="js/script.js"></script>

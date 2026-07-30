@@ -1,348 +1,358 @@
+/**
+ * O RECANTO DO SABOR - LANCHONETE E PASTELARIA
+ * High-Converting Landing Page & Admin Controller
+ */
+
 document.addEventListener('DOMContentLoaded', () => {
+  // ==========================================
+  // 1. DEFAULT CONFIGURATION & LOCALSTORAGE
+  // ==========================================
 
-  // --- Complete Menu Data from CARDAPIO.md ---
-  const menuItems = {
-    hamburgueres: [
-      { name: 'Mega Kids', desc: 'Pão brioche, hambúrguer artesanal, queijo cheddar.', price: 17.00 },
-      { name: 'Mega Burgs', desc: 'Pão brioche, hambúrguer artesanal, queijo mussarela, alface e tomate.', price: 19.00 },
-      { name: 'Mega Egg', desc: 'Pão brioche, hambúrguer artesanal, queijo mussarela, ovo, farofa de bacon, cebola caramelizada, alface e tomate.', price: 25.00 },
-      { name: 'Mega Cheddar', desc: 'Pão brioche, hambúrguer artesanal, molho cheddar, farofa de bacon, cebola caramelizada, alface e tomate.', price: 26.00 },
-      { name: 'Mega Catupiry', desc: 'Pão australiano, hambúrguer artesanal, molho catupiry, farofa de bacon, cebola caramelizada, alface e tomate.', price: 25.00 },
-      { name: 'Mega Bacon', desc: 'Pão brioche, hambúrguer artesanal, bacon fatia, queijo mussarela, farofa de bacon, cebola caramelizada, alface e tomate.', price: 27.00 },
-      { name: 'Mega Cheddar Bacon', desc: 'Pão brioche, hambúrguer artesanal, bacon fatia, molho cheddar, farofa de bacon, cebola caramelizada, alface e tomate.', price: 28.00 },
-      { name: 'Mega Arretado', desc: 'Pão australiano, 2 hambúrgueres artesanais, ovo, queijo cheddar, farofa de bacon, cebola caramelizada, alface e tomate.', price: 30.00 },
-      { name: 'Mega Brother', desc: 'Pão brioche, 3 hambúrgueres artesanais, 2 ovos, queijo cheddar, farofa de bacon, cebola caramelizada, alface e tomate.', price: 35.00 },
-      { name: 'Fran Bacon', desc: 'Pão brioche, frango empanado, bacon fatia, queijo cheddar, farofa de bacon, cebola caramelizada, alface e tomate.', price: 25.00 },
-      { name: 'Mistura Nordestina', desc: 'Pão brioche, carne de sol em cubos, ovo, queijo coalho, cebola roxa, alface e tomate.', price: 28.00 },
-      { name: 'Sertanejo', desc: 'Pão baguete, carne de sol na nata, ovo, queijo coalho, cebola roxa, alface e tomate.', price: 26.00 },
-      { name: 'Calabresa', desc: 'Pão baguete, calabresa, ovo, queijo coalho, cebola roxa, alface e tomate.', price: 23.00 },
-      { name: 'Coração', desc: 'Pão baguete, coração de galinha, ovo, queijo coalho, cebola roxa, alface e tomate.', price: 24.00 },
-      { name: 'Camarão', desc: 'Pão brioche, filé de camarão, ovo, queijo cheddar, cream cheese, alface e tomate.', price: 30.00 },
-      { name: 'Picanha', desc: 'Pão brioche, picanha, ovo, queijo mussarela, farofa de bacon, alface e tomate.', price: 28.00 },
-      { name: 'Mussarela', desc: 'Pão brioche, hambúrguer artesanal, mussarela empanada, queijo mussarela, farofa de bacon, cebola caramelizada, alface e tomate.', price: 26.00 },
-      { name: 'Chicken', desc: 'Pão brioche, frango empanado, ovo, queijo mussarela, farofa de bacon, cebola caramelizada, alface e tomate.', price: 27.00 },
-      { name: 'Mega Crocante', desc: 'Pão de queijo, hambúrguer artesanal enrolado no bacon, queijo mussarela, cebola crocante, alface e tomate.', price: 28.00 }
-    ],
-    tradicionais: [
-      { name: 'Avexado', desc: 'Pão, hambúrguer, queijo, alface, tomate, milho e batata.', price: 10.00 },
-      { name: 'Bauru Especial', desc: 'Pão, hambúrguer, ovo, queijo, presunto, catupiry, tomate, milho e batata.', price: 12.00 },
-      { name: 'X Tudão', desc: 'Pão, hambúrguer, ovo, bacon, salsicha, queijo, presunto, catupiry, alface, tomate, milho e batata.', price: 15.00 },
-      { name: 'Mega X Bacon', desc: 'Pão, hambúrguer, bacon crocante, queijo, presunto, catupiry, alface, milho e batata.', price: 15.00 },
-      { name: 'Mega Passaporte', desc: 'Pão, creme de frango, queijo, presunto, catupiry, alface, tomate, milho e batata.', price: 13.00 },
-      { name: 'Fran Bacon Tradicional', desc: 'Pão, creme de frango, bacon crocante, queijo, presunto, cheddar, alface, tomate, milho e batata.', price: 14.00 },
-      { name: 'Fran Burg', desc: 'Pão, hambúrguer, creme de frango, queijo, presunto, cheddar, alface, tomate, milho e batata.', price: 14.00 },
-      { name: 'À Moda Da Casa', desc: 'Pão, 2 hambúrgueres, ovo, carne de sol, bacon, queijo, presunto, catupiry, cheddar, alface, tomate, milho e batata.', price: 18.00 },
-      { name: 'Nordestino', desc: 'Pão, carne de sol, ovo, queijo coalho, catupiry, alface, tomate, milho e batata.', price: 17.00 },
-      { name: 'Filé Americano', desc: 'Pão, carne de sol, ovo, bacon, queijo, presunto, catupiry, cheddar, alface, tomate, milho e batata.', price: 18.00 },
-      { name: 'Filé De Frango', desc: 'Pão, filé de frango, ovo, queijo, presunto, cheddar, alface, tomate, milho e batata.', price: 16.00 },
-      { name: 'X Coração', desc: 'Pão, coração de galinha, ovo, queijo coalho, catupiry, cebola, alface, tomate, milho e batata.', price: 16.00 },
-      { name: 'X Calabresa', desc: 'Pão, calabresa, ovo, queijo coalho, cebola, catupiry, alface, tomate, milho e batata.', price: 15.00 },
-      { name: 'Filé De Camarão', desc: 'Pão, filé de camarão, ovo, queijo mussarela, cheddar, alface, tomate, milho e batata.', price: 20.00 },
-      { name: 'Big Brother', desc: 'Pão duplo, 2 hambúrgueres, 2 ovos, salsicha, bacon, 2 queijos, 2 presuntos, catupiry, alface, tomate, milho e batata.', price: 25.00 }
-    ],
-    megadog: [
-      { name: 'Mega Dog De Carne', desc: 'Hot Dog Pão Brioche, 2 Salsichas, Carne Moída, Milho, Batata Palha E Cheddar.', price: 12.00 },
-      { name: 'Mega Dog Coração', desc: 'Hot Dog Pão Australiano, 2 Salsichas, Coração De Galinha, Milho, Catupiry, Batata Palha.', price: 16.00 },
-      { name: 'Mega Dog Bacon', desc: 'Hot Dog Pão Brioche Com Gergelim, 2 Salsichas, Bacon, Catupiry, Milho, Batata Palha E Queijo Mussarela.', price: 15.00 },
-      { name: 'Mega Dog De Frango', desc: 'Hot Dog Pão Brioche, 2 Salsichas, Creme De Frango, Milho, Batata Palha E Catupiry.', price: 12.00 },
-      { name: 'Mega Dog Especial', desc: 'Hot Dog Pão De Queijo, 2 Salsichas, Filé De Carne, Molho Barbecue, Milho E Batata Palha.', price: 17.00 },
-      { name: 'Mega Dog Calabresa', desc: 'Hot Dog Pão Brioche Com Gergelim, 2 Salsichas, Calabresa, Queijo Coalho, Milho Batata Palha.', price: 15.00 },
-      { name: 'Mega Dog Cartola', desc: 'Hot Dog Pão Australiano, Banana Frita, Nutella, Queijo Mussarela, Canela, Calda De Chocolate.', price: 15.00 },
-      { name: 'Mega Dog Franbacon', desc: 'Hot Dog Pão De Queijo, 2 Salsichas, Frango, Bacon, Cheddar, Milho, Batata Palha.', price: 17.00 },
-      { name: 'Mega Dog Camarão', desc: 'Hot Dog Pão Australiano, 2 Salsichas, Camarão, Queijo Mussarela, Milho, Batata Palha.', price: 20.00 },
-      { name: 'Mega Dog Sertanejo', desc: 'Hot Dog Pão De Queijo, 2 Salsichas, Carne De Sol Na Nata, Queijo Coalho, Vinagrete, Milho, Batata Palha.', price: 18.00 },
-      { name: 'Mega Dog Romeu E Julieta', desc: 'Hot Dog Pão De Queijo, Queijo Empanado, Bacon Fatia, Chocolate.', price: 18.00 }
-    ],
-    torres: [
-      { name: 'Batata Carne de Sol na Nata', desc: 'Batata Frita, Carne De Sol Na Nata, Queijo Coalho, Molho Cheddar Ou Catupiry.', price: 58.00 },
-      { name: 'Mega Batata Com Calabresa', desc: 'Batata Frita, Calabresa, Molho Cheddar Ou Catupiry.', price: 52.00 },
-      { name: 'Mega Batata Com Camarão', desc: 'Batata Frita, Camarão, Molho Cheddar Ou Catupiry.', price: 68.00 },
-      { name: 'Mega Batata Com Coração', desc: 'Batata Frita, Coração De Galinha, Molho Cheddar Ou Catupiry.', price: 54.00 },
-      { name: 'Mega Batata Mista', desc: 'Coração, camarão, calabresa e carne 400g com queijo.', price: 68.00 },
-      { name: 'Mega Batata Catupiry Bacon', desc: 'Batata frita crocante coberta com catupiry e bacon.', price: 25.00 },
-      { name: 'Mega Batata Cheddar Bacon', desc: 'Batata frita crocante coberta com cheddar e bacon.', price: 25.00 },
-      { name: 'Filé Com Fritas', desc: 'Isca De Carne No Molho, Batata Frita, Salada.', price: 49.90 },
-      { name: 'Misto Com Fritas', desc: 'Coração De Galinha, Calabresa, Queijo Coalho, Batata Frita, Salada.', price: 49.90 },
-      { name: 'Frango Com Fritas', desc: 'Isca De Frango, Batata Frita, Salada.', price: 49.90 },
-      { name: 'Isca De Peixe Com Fritas', desc: 'Isca De Peixe Empanado, Batata Frita, Salada.', price: 49.90 },
-      { name: 'Camarão Com Fritas', desc: 'Camarão No Alho E Óleo, Batata Frita, Salada.', price: 59.90 }
-    ],
-    pasteis: [
-      { name: 'Pastel De Queijo', desc: 'Queijo mussarela derretido, massa crocante.', price: 8.00 },
-      { name: 'Pastel Pizza', desc: 'Queijo mussarela, presunto, tomate, orégano, massa crocante.', price: 10.00 },
-      { name: 'Pastel Frango Com Catupiry', desc: 'Frango desfiado, catupiry cremoso, massa crocante.', price: 10.00 },
-      { name: 'Pastel Fran Bacon', desc: 'Frango desfiado, bacon crocante, cheddar, massa crocante.', price: 12.00 },
-      { name: 'Pastel De Calabresa', desc: 'Calabresa moída, catupiry, queijo coalho, massa crocante.', price: 12.00 },
-      { name: 'Pastel De Bacon', desc: 'Bacon crocante, catupiry, queijo mussarela, massa crocante.', price: 13.00 },
-      { name: 'Pastel Nordestino', desc: 'Carne de sol, queijo coalho, catupiry, massa crocante.', price: 15.00 },
-      { name: 'Pastel Sertanejo', desc: 'Carne de sol desfiada, nata, queijo de manteiga, massa crocante.', price: 15.00 },
-      { name: 'Pastel De Camarão', desc: 'Filé de camarão, queijo mussarela, cheddar, massa crocante.', price: 18.00 },
-      { name: 'Pastel Bombadão', desc: 'Carne de sol, frango desfiado, bacon, calabresa, catupiry e queijo.', price: 20.00 }
-    ],
-    bebidas: [
-      { name: 'Açaí Supremo da Casa', desc: 'Açaí cremoso com morango, banana, granola e leite condensado.', price: 22.00 },
-      { name: 'Milk Shake Ovomaltine', desc: 'Milkshake super cremoso de Ovomaltine com chantilly.', price: 18.00 },
-      { name: 'Milk Shake Morango', desc: 'Milkshake cremoso de morango.', price: 15.00 },
-      { name: 'Milk Shake Chocolate', desc: 'Milkshake cremoso de chocolate.', price: 15.00 },
-      { name: 'Milk Shake Negresco', desc: 'Milkshake cremoso de biscoito Negresco.', price: 18.00 },
-      { name: 'Mega Cartola', desc: 'Pão australiano, banana frita, nutella, queijo mussarela, canela, calda de chocolate.', price: 22.00 },
-      { name: 'Mega Romeu e Julieta', desc: 'Pão de queijo, queijo empanado, bacon fatia, chocolate.', price: 27.00 },
-      { name: 'Sucos Naturais (Jarra/Copo)', desc: 'Acerola, Cajá, Abacaxi c/ Hortelã, Goiaba, Maracujá, Graviola, Morango, Laranja, Uva ou Limão.', price: 6.00 },
-      { name: 'Refrigerante Lata 350ml', desc: 'Coca-Cola, Fanta, Sprite ou Guaraná Antarctica.', price: 6.00 },
-      { name: 'Refrigerante 1 Litro', desc: 'Coca-Cola ou Guaraná Antarctica.', price: 10.00 },
-      { name: 'Água Mineral c/ Gás', desc: 'Garrafa 500ml.', price: 3.50 }
-    ],
-    combos: [
-      { name: 'Combo Mega', desc: 'Batata frita simples + Refrigerante lata.', price: 15.00 },
-      { name: 'Combo Especial', desc: '1 Mega Kids (Pão brioche + artesanal 120g + cheddar) + 1 Batata frita + 1 Refrigerante lata.', price: 25.90 },
-      { name: 'Combo Casal', desc: '2 Mega Egg + 1 Batata frita grande + 1 Refrigerante 1 Litro.', price: 49.90 },
-      { name: 'Mega Combo Família', desc: '3 Mega Eggs + 1 Refrigerante 1 Litro.', price: 54.00 }
-    ]
+  const defaultConfig = {
+    instaDeliveryUrl: 'https://instadelivery.com.br/recantodosabor',
+    whatsappNumber: '5584999990000',
+    instagramHandle: '@recantodosabor',
+    promoTitle: 'Compre 2 Double Smash Burgers e ganhe 1 Batata Média Crocante!',
+    promoCoupon: 'RECANTO10',
+    hoursText: 'Segunda a Domingo · 17:00 às 23:00',
+    addressText: 'Avenida das Delícias, Nº 100 - Centro, São Paulo do Potengi - RN'
   };
 
-  // --- Cart State ---
-  let cart = [];
-  let currentCategory = 'hamburgueres';
+  function getAdminConfig() {
+    const saved = localStorage.getItem('recanto_admin_config');
+    return saved ? JSON.parse(saved) : defaultConfig;
+  }
 
-  // --- DOM Elements ---
-  const menuGrid = document.getElementById('menuGrid');
-  const menuTabs = document.querySelectorAll('.menu-tab');
-  const searchInput = document.getElementById('menuSearchInput');
-  
-  const cartOverlay = document.getElementById('cartOverlay');
-  const cartDrawer = document.getElementById('cartDrawer');
-  const openCartBtn = document.getElementById('openCartBtn');
-  const closeCartBtn = document.getElementById('closeCartBtn');
-  const stickyCartBtn = document.getElementById('stickyCartBtn');
-  
-  const cartCountBadge = document.getElementById('cartCountBadge');
-  const stickyCartBadge = document.getElementById('stickyCartBadge');
-  const stickyCartTotal = document.getElementById('stickyCartTotal');
-  const cartTotalDisplay = document.getElementById('cartTotalDisplay');
-  const cartItemsContainer = document.getElementById('cartItemsContainer');
-  const sendWhatsAppOrderBtn = document.getElementById('sendWhatsAppOrderBtn');
+  function saveAdminConfig(config) {
+    localStorage.setItem('recanto_admin_config', JSON.stringify(config));
+    applyAdminConfig();
+  }
 
-  // --- Helper Currency Formatter ---
-  const formatCurrency = (val) => {
-    return val.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-  };
+  function applyAdminConfig() {
+    const config = getAdminConfig();
 
-  // --- Render Menu Items ---
-  function renderMenu(category, searchTerm = '') {
-    let items = menuItems[category] || menuItems.hamburgueres;
-    
-    if (searchTerm.trim() !== '') {
-      const term = searchTerm.toLowerCase();
-      items = [];
-      Object.keys(menuItems).forEach(cat => {
-        menuItems[cat].forEach(item => {
-          if (item.name.toLowerCase().includes(term) || item.desc.toLowerCase().includes(term)) {
-            items.push(item);
-          }
-        });
-      });
+    // Update all InstaDelivery links on the page
+    document.querySelectorAll('.instadelivery-link').forEach(link => {
+      link.href = config.instaDeliveryUrl || defaultConfig.instaDeliveryUrl;
+    });
+
+    // Update promo title & coupon
+    const promoTitleEl = document.getElementById('promoTitleDisplay');
+    if (promoTitleEl) promoTitleEl.textContent = config.promoTitle;
+
+    const promoCouponEl = document.getElementById('promoCouponDisplay');
+    if (promoCouponEl) promoCouponEl.textContent = config.promoCoupon;
+
+    // Update hours & address
+    const hoursEl = document.getElementById('hoursDisplay');
+    if (hoursEl) hoursEl.innerHTML = config.hoursText.replace('·', '<br />');
+
+    const addressEl = document.getElementById('addressDisplay');
+    if (addressEl) addressEl.textContent = config.addressText;
+
+    const phoneEl = document.getElementById('phoneDisplay');
+    if (phoneEl) phoneEl.textContent = config.whatsappNumber;
+
+    const instaEl = document.getElementById('instaLinkDisplay');
+    if (instaEl) {
+      instaEl.href = `https://instagram.com/${config.instagramHandle.replace('@', '')}`;
+      instaEl.innerHTML = `<i class="fab fa-instagram"></i> ${config.instagramHandle}`;
     }
 
-    if (items.length === 0) {
-      menuGrid.innerHTML = `
-        <div style="grid-column: 1 / -1; text-align: center; color: var(--color-text-muted); padding: 40px;">
-          <i class="fas fa-search" style="font-size: 2rem; margin-bottom: 12px; display: block;"></i>
-          Nenhum item encontrado para "${searchTerm}".
+    const footerWaEl = document.getElementById('footerWaLink');
+    if (footerWaEl) footerWaEl.href = `https://wa.me/${config.whatsappNumber.replace(/\D/g, '')}`;
+
+    const footerInstaEl = document.getElementById('footerInstaLink');
+    if (footerInstaEl) footerInstaEl.href = `https://instagram.com/${config.instagramHandle.replace('@', '')}`;
+  }
+
+  // ==========================================
+  // 2. FEATURED PRODUCTS (6 TO 8 TOP ITEMS)
+  // ==========================================
+
+  const featuredProducts = [
+    {
+      id: 1,
+      name: 'Mega Arretado',
+      category: 'Mais Vendido',
+      badge: '🔥 Nº 1 de Vendas',
+      desc: 'Pão australiano amanteigado, 2 hambúrgueres artesanais 160g, duplo cheddar, farofa crocante de bacon e cebola caramelizada.',
+      price: 'R$ 30,00',
+      rating: '5.0',
+      reviewsCount: '58',
+      image: 'assets/hero_burger.jpg'
+    },
+    {
+      id: 2,
+      name: 'Batata Carne de Sol na Nata',
+      category: 'Escolha da Casa',
+      badge: '🧀 Para Compartilhar',
+      desc: 'Batatas fritas super crocantes cobertas com farta carne de sol desfiada na nata, queijo coalho gratinado e farofa artesanal.',
+      price: 'R$ 58,00',
+      rating: '5.0',
+      reviewsCount: '42',
+      image: 'assets/special_fries.jpg'
+    },
+    {
+      id: 3,
+      name: 'Pastel Especial Recanto',
+      category: 'Favorito dos Clientes',
+      badge: '🥟 Crocante e Suculento',
+      desc: 'Massa levíssima e sequinha recheada com carne moída bem temperada, queijo muçarela derretido, presunto, ovo e milho.',
+      price: 'R$ 18,00',
+      rating: '4.9',
+      reviewsCount: '35',
+      image: 'assets/gallery_pastels.jpg'
+    },
+    {
+      id: 4,
+      name: 'Double Smash Bacon',
+      category: 'Mais Vendido',
+      badge: '🥓 Favorito da Galera',
+      desc: 'Pão brioche macio, 2 smash burgers crocantinhos de 90g, fatias generosas de bacon artesanal e maionese secreta da casa.',
+      price: 'R$ 28,00',
+      rating: '5.0',
+      reviewsCount: '49',
+      image: 'assets/promo_smash.jpg'
+    },
+    {
+      id: 5,
+      name: 'Milk-shake Choco Gourmet',
+      category: 'Escolha da Casa',
+      badge: '🍫 Sobremesa Perfeita',
+      desc: 'Sorvete premium de chocolate, calda generosa nas bordas, chantilly cremoso artesanal e raspas de biscoito crocante.',
+      price: 'R$ 20,00',
+      rating: '4.9',
+      reviewsCount: '27',
+      image: 'assets/gallery_milkshake.jpg'
+    },
+    {
+      id: 6,
+      name: 'Açaí Supremo da Casa',
+      category: 'Favorito dos Clientes',
+      badge: '💜 100% Puro e Cremoso',
+      desc: 'Açaí cremoso de altíssima pureza com morangos frescos fatiados, banana, leite em pó, granola especial e leite condensado.',
+      price: 'R$ 22,00',
+      rating: '5.0',
+      reviewsCount: '63',
+      image: 'assets/hero_acai.jpg'
+    }
+  ];
+
+  function renderFeaturedProducts() {
+    const container = document.getElementById('featuredProductsContainer');
+    if (!container) return;
+
+    const config = getAdminConfig();
+    const linkUrl = config.instaDeliveryUrl || defaultConfig.instaDeliveryUrl;
+
+    container.innerHTML = featuredProducts.map(product => `
+      <div class="special-card reveal">
+        <div class="special-card__img-container">
+          <img src="${product.image}" alt="${product.name}" loading="lazy" />
+          <span class="special-card__badge">${product.badge}</span>
         </div>
-      `;
-      return;
-    }
-
-    menuGrid.innerHTML = items.map(item => `
-      <div class="menu-item-card">
-        <div>
-          <div class="menu-item-header">
-            <h4 class="menu-item-name">${item.name}</h4>
-            <span class="menu-item-price">${formatCurrency(item.price)}</span>
+        <div class="special-card__body">
+          <h3 class="special-card__title">${product.name}</h3>
+          <p class="special-card__desc">${product.desc}</p>
+          <div class="special-card__footer">
+            <div class="special-card__rating">
+              <i class="fas fa-star"></i> ${product.rating} <span>(${product.reviewsCount})</span>
+            </div>
+            <span class="special-card__price">${product.price}</span>
           </div>
-          <p class="menu-item-desc">${item.desc}</p>
+          <a href="${linkUrl}" target="_blank" rel="noopener" class="btn btn--primary btn--full instadelivery-link">
+            🍔 Pedir no InstaDelivery
+          </a>
         </div>
-        <button class="btn btn--primary btn--full add-to-cart-btn" data-name="${item.name}" data-price="${item.price}">
-          <i class="fas fa-plus"></i> Adicionar ao Pedido
-        </button>
       </div>
     `).join('');
-
-    attachAddToCartListeners();
   }
 
-  // --- Attach Add To Cart Buttons ---
-  function attachAddToCartListeners() {
-    document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const name = btn.getAttribute('data-name');
-        const price = parseFloat(btn.getAttribute('data-price'));
-        addToCart(name, price);
+  // ==========================================
+  // 3. COUNTDOWN TIMER (OFERTA DA SEMANA)
+  // ==========================================
 
-        // Visual feedback
-        const originalText = btn.innerHTML;
-        btn.innerHTML = '<i class="fas fa-check"></i> Adicionado!';
-        btn.style.background = '#22c55e';
-        setTimeout(() => {
-          btn.innerHTML = originalText;
-          btn.style.background = '';
-        }, 1200);
-      });
-    });
-  }
+  function startCountdown() {
+    const hoursEl = document.getElementById('timerHours');
+    const minutesEl = document.getElementById('timerMinutes');
+    const secondsEl = document.getElementById('timerSeconds');
 
-  // --- Cart Functions ---
-  function addToCart(name, price) {
-    const existing = cart.find(item => item.name === name);
-    if (existing) {
-      existing.qty++;
-    } else {
-      cart.push({ name, price, qty: 1 });
-    }
-    updateCartUI();
-  }
+    if (!hoursEl || !minutesEl || !secondsEl) return;
 
-  function changeQty(name, delta) {
-    const item = cart.find(item => item.name === name);
-    if (item) {
-      item.qty += delta;
-      if (item.qty <= 0) {
-        cart = cart.filter(i => i.name !== name);
+    // Set countdown for 4 hours from current session start
+    let totalSeconds = (4 * 3600) + (28 * 60) + 15;
+
+    setInterval(() => {
+      if (totalSeconds <= 0) {
+        totalSeconds = 24 * 3600; // reset
+      } else {
+        totalSeconds--;
       }
-    }
-    updateCartUI();
+
+      const h = Math.floor(totalSeconds / 3600);
+      const m = Math.floor((totalSeconds % 3600) / 60);
+      const s = totalSeconds % 60;
+
+      hoursEl.textContent = String(h).padStart(2, '0');
+      minutesEl.textContent = String(m).padStart(2, '0');
+      secondsEl.textContent = String(s).padStart(2, '0');
+    }, 1000);
   }
 
-  function updateCartUI() {
-    const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
-    const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+  // ==========================================
+  // 4. REVIEWS SLIDER (CARROSSEL)
+  // ==========================================
 
-    cartCountBadge.textContent = totalCount;
-    stickyCartBadge.textContent = totalCount;
-    stickyCartTotal.textContent = formatCurrency(totalPrice);
-    cartTotalDisplay.textContent = formatCurrency(totalPrice);
+  function initReviewsSlider() {
+    const cards = document.querySelectorAll('#reviewsContainer .review-card');
+    const prevBtn = document.getElementById('reviewPrevBtn');
+    const nextBtn = document.getElementById('reviewNextBtn');
 
-    if (cart.length === 0) {
-      cartItemsContainer.innerHTML = `
-        <div class="cart-empty-msg">
-          <i class="fas fa-shopping-basket" style="font-size: 2.5rem; color: rgba(255,255,255,0.2); margin-bottom: 12px; display: block;"></i>
-          Seu carrinho está vazio.<br />Adicione hambúrgueres, açaí ou petiscos!
-        </div>
-      `;
-    } else {
-      cartItemsContainer.innerHTML = cart.map(item => `
-        <div class="cart-item">
-          <div class="cart-item-info">
-            <strong>${item.name}</strong>
-            <span>${formatCurrency(item.price * item.qty)}</span>
-          </div>
-          <div class="cart-item-qty">
-            <button class="qty-btn" onclick="window.changeCartQty('${item.name}', -1)">-</button>
-            <span class="qty-num">${item.qty}</span>
-            <button class="qty-btn" onclick="window.changeCartQty('${item.name}', 1)">+</button>
-          </div>
-        </div>
-      `).join('');
-    }
-  }
+    if (!cards.length) return;
 
-  // Expose changeCartQty globally for inline onclick
-  window.changeCartQty = changeQty;
+    let currentIndex = 0;
 
-  // --- Cart Drawer Toggle ---
-  function openCart() {
-    cartOverlay.classList.add('active');
-    cartDrawer.classList.add('active');
-  }
-
-  function closeCart() {
-    cartOverlay.classList.remove('active');
-    cartDrawer.classList.remove('active');
-  }
-
-  openCartBtn.addEventListener('click', openCart);
-  stickyCartBtn.addEventListener('click', openCart);
-  closeCartBtn.addEventListener('click', closeCart);
-  cartOverlay.addEventListener('click', closeCart);
-
-  // --- Send WhatsApp Order ---
-  sendWhatsAppOrderBtn.addEventListener('click', () => {
-    if (cart.length === 0) {
-      alert('Seu carrinho está vazio! Adicione itens antes de enviar o pedido.');
-      return;
+    function showReview(index) {
+      cards.forEach((card, i) => {
+        card.classList.toggle('active', i === index);
+      });
     }
 
-    const deliveryType = document.querySelector('input[name="deliveryType"]:checked').value;
-    const clientName = document.getElementById('clientNameInput').value.trim() || 'Cliente';
-    const clientAddress = document.getElementById('clientAddressInput').value.trim() || 'Não informado';
-    
-    let text = `🥟 *NOVO PEDIDO - O RECANTO DO SABOR (LANCHONETE & PASTELARIA)*\n\n`;
-    text += `👤 *Nome:* ${clientName}\n`;
-    text += `📍 *Forma:* ${deliveryType} (${clientAddress})\n\n`;
-    text += `📋 *ITENS DO PEDIDO:*\n`;
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+        showReview(currentIndex);
+      });
+    }
 
-    cart.forEach(item => {
-      text += `• ${item.qty}x ${item.name} (${formatCurrency(item.price * item.qty)})\n`;
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % cards.length;
+        showReview(currentIndex);
+      });
+    }
+
+    // Auto rotate every 6 seconds
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % cards.length;
+      showReview(currentIndex);
+    }, 6000);
+  }
+
+  // ==========================================
+  // 5. SCROLL REVEAL & HEADER CONTROLLER
+  // ==========================================
+
+  function initScrollBehavior() {
+    const header = document.getElementById('header');
+    const reveals = document.querySelectorAll('.reveal');
+
+    // Header scroll background change
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
     });
 
-    const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-    text += `\n💰 *TOTAL:* ${formatCurrency(totalPrice)}\n\n`;
-    text += `Obrigado! Aguardo a confirmação do pedido.`;
+    // Intersection Observer for smooth animations
+    const observerOptions = {
+      threshold: 0.15,
+      rootMargin: '0px 0px -50px 0px'
+    };
 
-    const encodedText = encodeURIComponent(text);
-    window.open(`https://wa.me/5584999990000?text=${encodedText}`, '_blank');
-  });
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
 
-  // --- Menu Tabs Listener ---
-  menuTabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      menuTabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      currentCategory = tab.dataset.category;
-      searchInput.value = '';
-      renderMenu(currentCategory);
-    });
-  });
+    reveals.forEach(el => observer.observe(el));
+  }
 
-  // --- Search Input Listener ---
-  searchInput.addEventListener('input', (e) => {
-    renderMenu(currentCategory, e.target.value);
-  });
-
-  // --- Mobile Hamburger Navigation ---
+  // Mobile Hamburger Toggle
   const hamburger = document.getElementById('hamburger');
   const nav = document.getElementById('nav');
 
-  hamburger.addEventListener('click', () => {
-    nav.classList.toggle('open');
-  });
-
-  document.querySelectorAll('.nav__link').forEach(link => {
-    link.addEventListener('click', () => {
-      nav.classList.remove('open');
+  if (hamburger && nav) {
+    hamburger.addEventListener('click', () => {
+      nav.classList.toggle('active');
     });
-  });
 
-  // --- Header Scroll Shadow ---
-  const header = document.getElementById('header');
-  window.addEventListener('scroll', () => {
-    header.classList.toggle('scrolled', window.scrollY > 50);
-  });
-
-  // --- Favorite Heart Button Toggle ---
-  document.querySelectorAll('.special-card__fav-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      btn.classList.toggle('active');
-      if (btn.classList.contains('active')) {
-        btn.style.background = '#e11d48';
-      } else {
-        btn.style.background = '';
-      }
+    nav.querySelectorAll('.nav__link').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('active');
+      });
     });
-  });
+  }
 
-  // Initial Render
-  renderMenu('hamburgueres');
-  updateCartUI();
+  // ==========================================
+  // 6. ADMIN MODAL CONTROLLER
+  // ==========================================
 
+  const adminOverlay = document.getElementById('adminOverlay');
+  const adminModal = document.getElementById('adminModal');
+  const openAdminBtn = document.getElementById('openAdminBtn');
+  const closeAdminBtn = document.getElementById('closeAdminBtn');
+  const adminForm = document.getElementById('adminForm');
+
+  function openAdmin() {
+    const config = getAdminConfig();
+
+    document.getElementById('adminInstaDeliveryUrl').value = config.instaDeliveryUrl || '';
+    document.getElementById('adminWhatsappNumber').value = config.whatsappNumber || '';
+    document.getElementById('adminInstagramHandle').value = config.instagramHandle || '';
+    document.getElementById('adminPromoTitle').value = config.promoTitle || '';
+    document.getElementById('adminPromoCoupon').value = config.promoCoupon || '';
+    document.getElementById('adminHoursText').value = config.hoursText || '';
+    document.getElementById('adminAddressText').value = config.addressText || '';
+
+    adminOverlay.classList.add('active');
+    adminModal.classList.add('active');
+  }
+
+  function closeAdmin() {
+    adminOverlay.classList.remove('active');
+    adminModal.classList.remove('active');
+  }
+
+  if (openAdminBtn) openAdminBtn.addEventListener('click', openAdmin);
+  if (closeAdminBtn) closeAdminBtn.addEventListener('click', closeAdmin);
+  if (adminOverlay) adminOverlay.addEventListener('click', closeAdmin);
+
+  if (adminForm) {
+    adminForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const newConfig = {
+        instaDeliveryUrl: document.getElementById('adminInstaDeliveryUrl').value.trim(),
+        whatsappNumber: document.getElementById('adminWhatsappNumber').value.trim(),
+        instagramHandle: document.getElementById('adminInstagramHandle').value.trim(),
+        promoTitle: document.getElementById('adminPromoTitle').value.trim(),
+        promoCoupon: document.getElementById('adminPromoCoupon').value.trim(),
+        hoursText: document.getElementById('adminHoursText').value.trim(),
+        addressText: document.getElementById('adminAddressText').value.trim()
+      };
+
+      saveAdminConfig(newConfig);
+      renderFeaturedProducts();
+      closeAdmin();
+
+      alert('✨ Alterações salvas com sucesso! A página foi atualizada.');
+    });
+  }
+
+  // ==========================================
+  // INITIALIZATION
+  // ==========================================
+  renderFeaturedProducts();
+  applyAdminConfig();
+  startCountdown();
+  initReviewsSlider();
+  initScrollBehavior();
 });
