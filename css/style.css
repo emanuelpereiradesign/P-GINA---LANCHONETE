@@ -1771,6 +1771,53 @@ input, select, textarea {
     font-size: 0.85rem;
   }
 
+  /* About Us Mobile Fixes */
+  .about-section {
+    padding: 60px 0;
+    background-attachment: scroll;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .about-img-box {
+    margin-bottom: 20px;
+  }
+
+  .about-years-badge {
+    position: relative;
+    bottom: 0;
+    right: 0;
+    margin-top: 14px;
+    width: 100%;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .about-signature-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    width: 100%;
+    margin-top: 24px;
+  }
+
+  .about-signature-wrapper .btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.98rem;
+    padding: 16px 20px;
+    white-space: normal;
+  }
+
+  .about-signature {
+    text-align: center;
+    font-size: 1.8rem;
+  }
+
   /* Contact Orange Banner Mobile */
   .contact-orange-grid {
     grid-template-columns: 1fr;
@@ -1783,26 +1830,33 @@ input, select, textarea {
 
   /* Final CTA Mobile */
   .final-cta-box {
-    padding: 40px 20px;
+    padding: 40px 16px;
+    border-radius: var(--radius-md);
   }
 
   .final-cta-title {
-    font-size: 2rem;
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
   }
 
   .final-cta-subtitle {
-    font-size: 0.98rem;
+    font-size: 0.95rem;
+    margin-bottom: 24px;
   }
 
   .final-cta-btn {
     width: 100%;
-    font-size: 1.05rem;
-    padding: 16px 20px;
+    font-size: 1rem;
+    padding: 16px 16px;
+    white-space: normal;
+    text-align: center;
+    justify-content: center;
+    word-break: break-word;
+    box-sizing: border-box;
   }
 
   .final-cta-badges {
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
   }
 
   /* Sticky Float Button for Mobile */
@@ -1825,5 +1879,14 @@ input, select, textarea {
 
   .gallery-item {
     height: 210px;
+  }
+
+  .about-title {
+    font-size: 1.8rem;
+  }
+
+  .final-cta-btn {
+    font-size: 0.95rem;
+    padding: 14px 12px;
   }
 }
